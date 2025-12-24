@@ -12,7 +12,7 @@ contract TodoList {
     event TaskAdded(uint256 index, string text);
     event TaskToggled(uint256 index, bool completed);
 
-    // Добавление задачи
+    // добавление новой задачи с автоматической установкой статуса "не выполнено"
     function addTask(string calldata _text) external {
         tasks.push(Task({
             text: _text,
@@ -22,7 +22,7 @@ contract TodoList {
         emit TaskAdded(tasks.length - 1, _text);
     }
 
-    // Переключение статуса задачи
+    // Изменение статуса выполнения задачи на противоположный
     function toggleTask(uint256 _index) external {
         require(_index < tasks.length, "Task does not exist");
 
@@ -31,7 +31,7 @@ contract TodoList {
         emit TaskToggled(_index, tasks[_index].completed);
     }
 
-    // Получение всех задач
+    // получение массива всех задач для отображения в интерфейсе
     function getTasks() external view returns (Task[] memory) {
         return tasks;
     }
