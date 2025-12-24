@@ -165,9 +165,9 @@ export default function TodoListPage() {
                       task.completed ? "bg-green-500 border-green-500" : "border-gray-400"
                     }`}
                   >
-                    {task.completed && <span className="text-white text-xs">✓</span>}
+                    {task.completed && <span className="text-black text-xs">✓</span>}
                   </button>
-                  <span className={task.completed ? "line-through text-gray-500" : ""}>{task.text}</span>
+                  <span className={task.completed ? "line-through text-gray-500" : "text-black"}>{task.text}</span>
                 </div>
                 <span
                   className={`text-sm px-2 py-1 rounded ${
